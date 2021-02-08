@@ -1,0 +1,137 @@
+<div>
+  <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+    <ul class="navbar-nav">
+       <li class="nav-brandd" >
+           <a class="navbar-brand" href="index.html"><img src="../assets/images/datahorizon-logo-white-2.png" style="width: 180px; height: 50px; margin-right: 500px; margin-left: 50px;"></a>
+       </li>
+       <li class="nav-item"  style="font-size:larger; margin-right: 20px;">
+           <a routerLink="employee" class="nav-link" routerLinkActive="active">Accueil</a>
+       </li>
+       <li class="nav-item" style="font-size:larger; margin-right: 20px;">
+         <a routerLink="addemp" class="nav-link" routerLinkActive="active">Ajouter un employee</a>
+     </li>
+    
+     </ul>
+   </nav>
+
+   <div class="content-title wow bounceInRight" data-wow-duration="1s" data-wow-delay=".5s">
+    <h3>Gestion des ressources humaines</h3>
+    <div class="content-title-underline"></div>
+    
+</div>
+ 
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+  <table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
+
+
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> ID. </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="employee_name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom </th>
+      <td mat-cell *matCellDef="let element"> {{element.employee_name}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="employee_salary">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> salaire </th>
+      <td mat-cell *matCellDef="let element"> {{element.employee_salary}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="employee_age">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Age </th>
+      <td mat-cell *matCellDef="let element"> {{element.employee_age}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="profile_image">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Images </th>
+      <td mat-cell *matCellDef="let element"> {{element.profile_image}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element" class="action-link"> 
+        <td mat-cell *matCellDef="let element"> Delete</td>
+      
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+  <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons></mat-paginator>
+</div>
+
+
+  
+
+<footer id="footer">
+  <div id="footer-cover" class="bg-parallax">
+      <div class="footer-top">
+          <div class="container">
+              <div class="row content-title wow animation fadeInDown" data-wow-duration="1s" data-wow-delay=".5s">
+                  <div class="col-lg-4 col-md-3 col-sm-3 col-xs-12 footer-info">
+                      <img src="../assets/images/datahorizon-logo-white-2.png" />
+
+                  </div>
+                  <div class="col-lg-2 col-md-3 col-sm-2 col-xs-12 footer-links">
+                      <h4>Liens Utiles</h4>
+                      <ul>
+                          <li><a routerLink="employees" class="nav-link" routerLinkActive="active">Accueil</a></li>
+                          <li><a routerLink="employees" class="nav-link" routerLinkActive="active">services</a></li>
+                          <li><a routerLink="employees" class="nav-link" routerLinkActive="active">contact</a></li>
+
+                      </ul>
+                  </div>
+                  <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 footer-links">
+                      <h4>Nos services</h4>
+                      <ul>
+                          <li><a routerLink="employees" class="nav-link" routerLinkActive="active">Gestion des employees</a></li>
+                          
+                          <li><a routerLink="employees" class="nav-link" routerLinkActive="active">statistiques</a></li>
+                  
+                      </ul>
+
+                  </div>
+                  <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 footer-contact">
+                      <h4>Contacter Nous</h4>
+                      <p><img src="../assets/images/localisation.png" class="ic">DATAHORIZON Tunis<br>
+                          <img src="../assets/images/tele.png" class="ic"><strong> +216 71 872 600</strong><br>
+                          <img src="../assets/images/tele.png" class="ic"><strong> +216 71 871 666</strong><br>
+                          <img src="../assets/images/mobile-01.png" class="ic"><strong> +216 71 871 666</strong><br>
+                          <img src="../assets/images/contact.png" class="ic"><strong> webmaster@datahorizon.com</strong><br>
+                      </p>
+                      <div class="social-links">
+                          <a href="http://www.facebook.com/" class="facebook"><i class="fab fa-facebook"></i></a>
+                          <a href="http://www.twitter.com" class="twitter"><i class="fab fa-twitter"></i></a>
+                          <a href="http://www.instagram.com" class="instagram"><i class="fab fa-instagram"></i></a>
+                          <a href="http://www.youtube.com" class="youtube"><i class="fab fa-youtube"></i></a>
+                      </div>
+                  </div>
+
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="container wow animation zoomIn" data-wow-duration="1s" data-wow-delay=".5s">
+      <div class="copyright">
+           Copyright &copy;<script>document.write(new Date().getFullYear());</script>  <strong>med wajdi sassi </strong>.All Rights Reserved
+      </div>
+      <div class="credits">
+          Designed by <a href=""> med wajdi sassi</a>
+      </div>
+  </div>
+  
+
+  <a href="#carousel-example-generic" id="back-to-top" class="btn btn-sm btn-vert btn-back-to-top smooth-scroll" title="home" role="button">
+      <i class="fas fa-angle-up"></i>
+  </a>
+</footer>
